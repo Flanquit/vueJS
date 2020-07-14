@@ -20,21 +20,48 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+    <style type="text/css">
+        .ColorRed {
+            color: red;
+        }
+        
+        .ColorBlue {
+            color: Blue;
+        }
+        
+        .is-loading {
+            color: red;
+        }
+    </style>
+
     <div id="root">
-        <input type="text" id="input" v-model="message">
-        <p>The value of the input is {{message}}</p>
+        <!-- <button @click="method" @:title="title">Hover Over Me </button> -->
+        <!-- <h1 :class="ClassName">Header one</h1> -->
+
+        <button :class="{ 'is-loading': isloading }" @click="toggleClass">Toggle Me </button>
     </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-        new Vue({
+        var app = new Vue({
             el: '#root',
             data: {
-                message: 'Hie Flanquit'
-            }
-        })
+                // ClassName: 'ColorRed',
+
+                isloading = false
+
+
+            },
+
+            methods: {
+                toggleClass() {
+                    this.isloading = true;
+                }
+            },
+
+        });
     </script>
 
 </body>
